@@ -30,7 +30,9 @@ public class ScheduleConfig {
 	@Scheduled(fixedDelayString = "${scheduled.save}")
 	public void scheduleSaveUser() {
 		i++;
-		userLoginRepository.save(new UserLogin(i, "firstName"+i, "lastName"+i, "userName"+i, "password"+i, "email"+i, "mobile"+i));
+		if(userLoginRepository.findByIdAndEmail(i, "email"+i)==null){
+			userLoginRepository.save(new UserLogin(i, "firstName"+i, "lastName"+i, "userName"+i, "password"+i, "email"+i, "mobile"+i));
+		}
 	}
 	
 	@Scheduled(fixedDelayString = "${scheduled.list}")

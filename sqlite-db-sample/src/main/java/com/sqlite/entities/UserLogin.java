@@ -9,7 +9,12 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "UserLogin", 
-	   uniqueConstraints = {@UniqueConstraint(columnNames = {"id", "email"})}
+	   uniqueConstraints = {
+			   @UniqueConstraint(
+					   	name="idx_userlogin_id_email",
+					   	columnNames = {"id", "email"}
+					   )
+			   }
 )
 public class UserLogin {
 
