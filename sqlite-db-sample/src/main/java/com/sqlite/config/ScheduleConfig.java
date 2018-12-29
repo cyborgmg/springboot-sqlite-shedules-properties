@@ -46,7 +46,7 @@ public class ScheduleConfig {
 		
 		if(userLoginRepository.findAll().size()>20){
 			userLoginRepository.deleteAll();
-		}// 3744
+		}
 	}
 
 }
